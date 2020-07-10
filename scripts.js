@@ -51,20 +51,20 @@ function getOtDomainId() {
 /**
  * Return the language detected in the current path
  */
-function getDetectedLanguage() {
+function getDetectedLanguage(defaultValue) {
   return window.location.pathname
     .split('/').slice(1, 2)
-    .pop();
+    .pop() || defaultValue;
 }
 
 /**
  * Return the page type detected in the current markup
  */
-function getDetectedPageType() {
+function getDetectedPageType(defaultValue) {
   return [...document.documentElement.classList]
     .filter((cls) => cls.endsWith('-page'))
     .map((cls) => cls.split('-')[0])
-    .pop();
+    .pop() || defaultValue;
 }
 
 // Prep images for lazy loading and use adequate sizes
@@ -110,8 +110,8 @@ window.blog = function() {
     FR: 'fr',
   };
   const context = '/';
-  const language = LANG[getDetectedLanguage().toUpperCase()] || LANG.EN;
-  const pageType = TYPE[getDetectedPageType().toUpperCase()] || TYPE.HOME;
+  const language = LANG[getDetectedLanguage(LANG.EN).toUpperCase()];
+  const pageType = TYPE[getDetectedPageType(TYPE.HOME).toUpperCase()];
   return { context, language, pageType, TYPE, LANG };
 }();
 
