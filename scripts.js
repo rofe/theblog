@@ -108,6 +108,10 @@ window.blog = function() {
     EN: 'en',
     DE: 'de',
     FR: 'fr',
+    JP: 'jp',
+    PT: 'pt',
+    KO: 'ko',
+    ES: 'es',
   };
   const context = '/';
   const language = LANG[getDetectedLanguage(LANG.EN).toUpperCase()];
