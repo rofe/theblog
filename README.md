@@ -1,4 +1,6 @@
-# The Blog
+DO NOT MERGE!
+
+# The Blog - Oproma dedicated repository
 
 ## What
 
